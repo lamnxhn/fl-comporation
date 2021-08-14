@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  </head>
+  <title>System</title>
+  <link rel="stylesheet" herf="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css ">
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Anonymous_emblem.svg/160px-Anonymous_emblem.svg.png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <body>
+    <!-- Messenger Plugin chat Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Plugin chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+    <script>
+        /* Add "https://api.ipify.org?format=json" statement
+           this will communicate with the ipify servers in
+           order to retrieve the IP address $.getJSON will
+           load JSON-encoded data from the server using a
+           GET HTTP request */
+  
+        $.getJSON("https://api.ipify.org?format=json",
+                                          function(data) {
+  
+            // Setting text of element P with id gfg
+            $("#gfg").html(data.ip);
+        })
+    </script>
+    <center><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4YOpjJku55cWdqZZ18BUoKWUlVSp3yi04cg&usqp=CAU" width="" height="250"></img></center>
+    <center><span style="color: #ff0000"><h1>Your Ip Address Is</h1></span> </center>
+      <h1>
+      <span style="color: #ff0000"><center><p id='gfg'></p></center></span>
+    </h1>
+    <style>
+    body {background-color: black;}
+    </style>
+  </body>
+</html>
