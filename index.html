@@ -8,31 +8,19 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <body>
-    <!-- Messenger Plugin chat Code -->
-    <div id="fb-root"></div>
+    $.get("https://ipinfo.io/json", function (response) {
+    $("#ip").html("IP: " + response.ip);
+    $("#address").html("Location: " + response.city + ", " + response.region);
+    $("#details").html(JSON.stringify(response, null, 4));
+}, "jsonp");
 
-    <!-- Your Plugin chat code -->
-    <div id="fb-customer-chat" class="fb-customerchat">
-    </div>
-    <script>
-        /* Add "https://api.ipify.org?format=json" statement
-           this will communicate with the ipify servers in
-           order to retrieve the IP address $.getJSON will
-           load JSON-encoded data from the server using a
-           GET HTTP request */
-  
-        $.getJSON("https://api.ipify.org?format=json",
-                                          function(data) {
-  
-            // Setting text of element P with id gfg
-            $("#gfg").html(data.ip);
-        })
-    </script>
-    <center><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4YOpjJku55cWdqZZ18BUoKWUlVSp3yi04cg&usqp=CAU" width="" height="250"></img></center>
-    <center><span style="color: #ff0000"><h1>Your Ip Address Is</h1></span> </center>
-      <h1>
-      <span style="color: #ff0000"><center><p id='gfg'></p></center></span>
-    </h1>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<h3>Client side IP geolocation using <a href="http://ipinfo.io">ipinfo.io</a></h3>
+
+<hr/>
+<div id="ip"></div>
+<div id="address"></div>
+<hr/>Full response: <pre id="details"></pre>
     <style>
     body {background-color: black;}
     </style>
