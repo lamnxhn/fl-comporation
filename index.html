@@ -1,44 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Ip Address</title>
-<link rel="icon" href="https://i.pinimg.com/564x/4e/dc/b4/4edcb460a940ff726549077935f57168.jpg">
-</head>
-<body>
-    <div>Country: <span id="country"></span></div>
-    <div>State: <span id="state"></span></div>
-    <div>City: <span id="city"></span></div>
-    <div>Postal: <span id="postal"></span></div>
-    <div>Latitude: <span id="latitude"></span></div>
-    <div>Longitude: <span id="longitude"></span></div>
-    <div>IP address: <span id="ipv4"></span></div>                             
-</body>
-<script>
-
-    var country = document.getElementById('country');
-    var state = document.getElementById('state');
-    var city = document.getElementById('city');
-    var postal = document.getElementById('postal');
-    var latitude = document.getElementById('latitude');
-    var longitude = document.getElementById('longitude');
-    var ip = document.getElementById('ipv4');
-
-    function callback(data)
-    {
-        country.innerHTML = data.country_name;
-        state.innerHTML = data.state;
-        city.innerHTML = data.city;
-        postal.innerHTML = data.postal;
-        latitude.innerHTML = data.latitude;
-        longitude.innerHTML = data.longitude;
-        ip.innerHTML = data.IPv4;
-    }
-
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = 'https://geoilocation-db.com/json/geoip.php?jsonp=callback';
-    var h = document.getElementsByTagName('script')[0];
-    h.parentNode.insertBefore(script, h);
-
-</script> 
+  <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    /* Add "https://api.ipify.org?format=json" statement
+           this will communicate with the ipify servers in
+           order to retrieve the IP address $.getJSON will
+           load JSON-encoded data from the server using a
+           GET HTTP request */
+  
+           $.getJSON("https://api.ipify.org?format=json",
+                                          function(data) {
+  
+            // Setting text of element P with id gfg
+            $("#gfg").html(data.ip);
+        })
+  </script>
+  <center><img src="https://nld.mediacdn.vn/zoom/700_438/2015/anonymous-1447907195159.jpg" height="256"></center>
+  <center> <span style="color:brown"><h1>Your Ip Address Is</h1></span></center>
+  <center><span style="color:brown"><h1 id="gfg"></h1></span></center>
+  <center> <span style="color:brown"><h1>Maybe This Is Your Private/Publick Ip Address | Use Vpn to Hide You Indenty</h1></span></center>
+  <style>
+      body {background-color: black;}
+  </style>
+  </body>
 </html>
